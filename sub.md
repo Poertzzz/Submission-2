@@ -165,6 +165,8 @@ Analisis distribusi rating akan menunjukkan bagaimana pelanggan umumnya memberik
 | 4.5    | 45            |
 | 5.0    | 550           |
 
+ mengelompokkan data berdasarkan kolom bank : 
+
 | No. | Bank                   | Rata-Rata Rating |
 |-----|------------------------|------------------|
 | 1   | Citibank               | 4.714286         |
@@ -182,14 +184,7 @@ Citibank memperoleh rating tertinggi sebesar 4.71, diikuti oleh Punjab National 
 
 #### 5. Visualisasi Data
 
-Visualisasi data akan digunakan untuk menyajikan *insight* dari langkah-langkah sebelumnya secara grafis. Contoh visualisasi yang akan dilakukan meliputi:
-
-* **Histogram Distribusi Rating**: Menunjukkan frekuensi setiap nilai rating, membantu mengidentifikasi pola penilaian umum.
-* **Bar Chart Top N Bank dengan Ulasan Terbanyak**: Mengidentifikasi bank-bank yang paling banyak diulas, yang mungkin menunjukkan popularitas atau cakupan yang lebih luas.
-* **Word Cloud dari `Review_Text`** (Opsional, jika `Review_Text` dianalisis lebih lanjut): Memberikan gambaran visual tentang kata-kata yang paling sering muncul dalam ulasan, memberikan *insight* awal tentang sentimen pelanggan.
-* **Distribusi Ulasan per Bulan/Tahun**: Jika kolom `Date` tersedia, visualisasi ini dapat menunjukkan tren ulasan dari waktu ke waktu.
-
-Melalui tahapan *Data Understanding* ini, diharapkan kita akan memperoleh pemahaman yang komprehensif mengenai struktur, kualitas, dan karakteristik dataset, yang akan menjadi dasar kuat untuk tahap pemodelan selanjutnya.
+Visualisasi data akan digunakan untuk menyajikan *insight* dari langkah-langkah sebelumnya secara grafis. Berikut merupakn beberapa visualisasi data nya : 
 
 ---
 
