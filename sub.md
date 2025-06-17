@@ -1,21 +1,22 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - PUTRA ADE NIRADA
+**Nama:** PUTRA ADE NIRADA
+
+**ID Dicoding:** putraade
 
 ---
 
 ## Project Overview
 
-Dalam industri perbankan yang serba cepat, calon nasabah sering kewalahan dengan segudang pilihan bank dan layanan. Kebanjiran informasi ini, atau choice overload, bisa menurunkan kepercayaan diri dan kepuasan mereka dalam memilih.
+Dalam industri perbankan yang serba cepat dan dinamis, calon nasabah seringkali dihadapkan pada **_choice overload_** akibat banyaknya pilihan bank dan layanan yang tersedia. Fenomena ini dapat mengurangi kepercayaan diri dan kepuasan mereka dalam membuat keputusan finansial yang penting [1].
 
-Proyek ini penting karena sistem rekomendasi bank yang efektif akan menguntungkan baik nasabah maupun bank. Bagi nasabah, 
-sistem ini menyederhanakan pencarian, membantu mereka menemukan bank yang relevan secara personal, meningkatkan pengalaman, dan mengungkap layanan baru. 
-Untuk bank, algoritma rekomendasi dapat meningkatkan keterlibatan, loyalitas, dan akuisisi nasabah baru, pada akhirnya meningkatkan metrik bisnis seperti jumlah nasabah dan retensi pengguna.
+Pentingnya proyek ini terletak pada **manfaat timbal balik** yang diberikannya, baik bagi nasabah maupun institusi perbankan. Bagi nasabah, sistem rekomendasi ini menyederhanakan proses pencarian, memfasilitasi penemuan bank yang relevan dengan preferensi personal, meningkatkan pengalaman pengguna secara keseluruhan, serta memperkenalkan layanan perbankan baru yang mungkin belum mereka sadari. Sementara itu, bagi bank, algoritma rekomendasi berpotensi **meningkatkan keterlibatan nasabah, membangun loyalitas, dan mendukung akuisisi nasabah baru**. Hal ini pada gilirannya akan berdampak positif pada metrik bisnis kunci seperti pertumbuhan jumlah nasabah dan tingkat retensi pengguna.
 
-Penelitian menunjukkan bahwa ulasan pelanggan adalah fondasi kuat untuk sistem rekomendasi, karena merefleksikan pengalaman dan preferensi asli pengguna (Adomavicius & Tuzhilin, 2005). Proyek ini memanfaatkan "Banks Reviews Customer Dataset", kumpulan ulasan dan peringkat pelanggan bank yang ekstensif. Dataset kredibel ini memberikan wawasan mendalam tentang kepuasan pelanggan, tren regional, dan faktor pembentuk pengalaman perbankan, memungkinkan kami mengembangkan model rekomendasi yang representatif.
+Penelitian sebelumnya telah menunjukkan bahwa **ulasan pelanggan merupakan fondasi yang kokoh untuk sistem rekomendasi**, karena secara akurat merefleksikan pengalaman dan preferensi otentik pengguna [2]. Proyek ini memanfaatkan "**Banks Reviews Customer Dataset**," sebuah kumpulan data ekstensif yang berisi ulasan dan peringkat pelanggan bank. Dataset yang kredibel ini menyediakan wawasan mendalam mengenai tingkat kepuasan pelanggan, tren regional, dan faktor-faktor kunci yang membentuk pengalaman perbankan. Pemanfaatan dataset ini memungkinkan pengembangan model rekomendasi yang representatif dan relevan.
 
-Referensi:
+### **Referensi**
 
-Adomavicius, G., & Tuzhilin, A. (2005). Toward the Next Generation of Recommender Systems: A Survey of the State-of-the-Art and Possible Extensions. IEEE Transactions on Knowledge and Data Engineering, 17(6), 734-749.
-"Banks Reviews Customer Dataset". (n.d.). Sumber internal atau platform data set.
+[1] "Banks Reviews Customer Dataset," [Online]. Available: [Bank Reviews Dataset, Kaggle]. [Accessed: [Tanggal Akses, misal: 17 Juni 2025]].
+[2] Anu Taneja*, and Anuja Arora, "A Comparison Evaluation of Demographic and Contextual Information of Movies using Tensor Factorization Model" *Int J Performability Eng,Vol. 15, Issue (9): 2305-2317. 2019, 
 
 ---
 
@@ -38,7 +39,7 @@ Berdasarkan pernyataan masalah di atas, tujuan utama proyek ini adalah mengemban
 
 ### Solution Approach
 
-Untuk mencapai tujuan yang telah ditetapkan, proyek ini akan mengeksplorasi dan membandingkan kinerja tiga pendekatan *machine learning* yang berbeda dalam membangun sistem rekomendasi berbasis *Item-Based Collaborative Filtering*. Evaluasi kinerja model akan menggunakan **Mean Absolute Error (MAE)** untuk mengukur akurasi prediksi.
+Untuk mencapai tujuan yang telah ditetapkan, proyek ini akan mengeksplorasi dan membandingkan kinerja tiga pendekatan *machine learning* yang berbeda dalam membangun sistem rekomendasi berbasis *Collaborative Filtering*. Evaluasi kinerja model akan menggunakan **Mean Absolute Error (MAE)** dan **Top-N Recommendation Evaluation** untuk mengukur akurasi prediksi.
 
 #### Solution Statements
 
@@ -54,7 +55,7 @@ Untuk mencapai tujuan yang telah ditetapkan, proyek ini akan mengeksplorasi dan 
     * **Pendekatan:** NCF merupakan pendekatan berbasis *deep learning* yang menggantikan fungsi interaksi matriks tradisional dengan arsitektur jaringan saraf tiruan (neural network). Model ini memungkinkan pemodelan interaksi yang lebih kompleks dan non-linear antara pengguna dan item, berpotensi menangkap pola preferensi yang lebih kaya.
     * **Dasar Pemikiran:** NCF menawarkan fleksibilitas yang lebih besar dalam memodelkan interaksi pengguna-item, berpotensi melampaui linearitas metode tradisional dan mencapai akurasi yang lebih tinggi, terutama dengan dataset yang besar dan kompleks.
 
-Perbandingan ketiga model ini akan memberikan pemahaman mendalam tentang pendekatan mana yang paling efektif dalam merekomendasikan bank di dataset "Banks Reviews Customer Dataset" berdasarkan metrik MAE, serta memberikan dasar untuk memilih model terbaik untuk implementasi.
+Perbandingan ketiga model ini akan memberikan pemahaman mendalam tentang pendekatan mana yang paling efektif dalam merekomendasikan bank di dataset "Banks Reviews Customer Dataset" berdasarkan metrik MAE dan Top-N Recommendation Evaluation, serta memberikan dasar untuk memilih model terbaik untuk implementasi.
 
 ---
 
@@ -142,8 +143,6 @@ Duplikasi data : np.int64(0)
 
 Menghitung jumlah pengguna unik (`User_ID`) dan bank unik (`Bank_Name`) akan memberikan gambaran tentang skala dataset dari perspektif pengguna dan item. Informasi ini krusial untuk memahami kepadatan (sparsity) matriks interaksi pengguna-item, yang merupakan karakteristik penting dalam sistem rekomendasi.
 
-## Ringkasan Jumlah Pengguna dan Bank Unik
-
 | Kategori      | Jumlah |
 |---------------|--------|
 | Pengguna Unik | 620    |
@@ -191,27 +190,20 @@ Visualisasi data akan digunakan untuk menyajikan *insight* dari langkah-langkah 
 
 ![Gambar 1 Distribusi_Rating_User](image/Distribusi_Rating_User.png)
 
-   - Dominasi Rating Sempurna (5.0): Terlihat jelas bahwa rating 5.0 mendominasi dataset, dengan jumlah ulasan mencapai lebih dari 550, menunjukkan kecenderungan kuat pengguna untuk memberikan penilaian tertinggi.
-   - Kecenderungan Umum Positif: Selain rating 5.0, rating 4.0 juga memiliki frekuensi tinggi (sekitar 250 ulasan). Ini mengindikasikan bahwa sebagian besar ulasan bersifat positif atau sangat positif.
-   - Jumlah Rating Negatif/Netral yang Sangat Rendah: Rating di bawah 3.0 (termasuk 0.5, 1.0, 1.5, 2.0, 2.5) memiliki jumlah ulasan yang sangat minim, menunjukkan bahwa ulasan negatif atau netral jarang diberikan dibandingkan dengan ulasan positif.
+   - Terlihat jelas bahwa rating 5.0 mendominasi dataset, dengan jumlah ulasan mencapai lebih dari 550, menunjukkan kecenderungan kuat pengguna untuk memberikan penilaian tertinggi.
+   - Selain rating 5.0, rating 4.0 juga memiliki frekuensi tinggi (sekitar 250 ulasan). Ini mengindikasikan bahwa sebagian besar ulasan bersifat positif atau sangat positif.
+   - Rating di bawah 3.0 (termasuk 0.5, 1.0, 1.5, 2.0, 2.5) memiliki jumlah ulasan yang sangat minim, menunjukkan bahwa ulasan negatif atau netral jarang diberikan dibandingkan dengan ulasan positif.
  
 **Jumlah Ulasan Bank :**
 ![Gambar 2 Jumlah_Ulasan_Bank](image/Jumlah_Ulasan_Bank.png)
-   - Dominasi Entri 'review': Terdapat entri anomali bernama 'review' yang memiliki jumlah ulasan tertinggi secara signifikan (sekitar 280 ulasan). Ini sangat tidak wajar untuk nama bank dan mengindikasikan adanya masalah data quality yang serius yang perlu diinvestigasi dan diperbaiki (kemungkinan placeholder atau kesalahan entri data) sebelum pemodelan.
-   - Bank-Bank Terpopuler (Selain Anomali): Setelah 'review', SBI (sekitar 220 ulasan) dan HDFC Bank (sekitar 190 ulasan) adalah bank-bank dengan jumlah ulasan terbanyak. Ini menunjukkan bahwa kedua bank ini kemungkinan besar adalah bank besar atau paling banyak digunakan di dataset ini.
-   - Distribusi Ulasan yang Tidak Merata: Terdapat ketimpangan yang jelas dalam jumlah ulasan antar bank. Beberapa bank, seperti Punjab National Bank, Citibank, IDBI, dan Indusind Bank, memiliki jumlah ulasan yang sangat sedikit (kurang dari 50), yang dapat menjadi tantangan untuk sistem rekomendasi karena kurangnya data interaksi.
+   - Terdapat entri anomali bernama 'review' yang memiliki jumlah ulasan tertinggi secara signifikan (sekitar 280 ulasan). Ini sangat tidak wajar untuk nama bank dan mengindikasikan adanya masalah data quality yang serius yang perlu diinvestigasi dan diperbaiki (kemungkinan placeholder atau kesalahan entri data) sebelum pemodelan.
+   - Setelah 'review', SBI (sekitar 220 ulasan) dan HDFC Bank (sekitar 190 ulasan) adalah bank-bank dengan jumlah ulasan terbanyak. Ini menunjukkan bahwa kedua bank ini kemungkinan besar adalah bank besar atau paling banyak digunakan di dataset ini.
 
 **Heatmap Interaksi User**
 ![Gambar 3 Heatmap_Interaksi_User](image/Heatmap_Interaksi_User.png)
-   - Sparsity (Kepadatan) Data: Heatmap ini dengan jelas menunjukkan bahwa matriks interaksi pengguna-bank sangat sparse (jarang). Sebagian besar sel berwarna kuning pucat (nilai 0 atau tidak ada interaksi), yang berarti mayoritas pengguna hanya berinteraksi (memberikan rating) dengan sedikit bank dari total bank yang tersedia. Ini adalah karakteristik umum dalam sistem rekomendasi dan menjadi tantangan utama.
-   - Popularitas Bank (Terlihat dari Jumlah Interaksi): Meskipun ini hanya sampel, terlihat bahwa beberapa bank, seperti 'review' (yang telah kita identifikasi sebagai anomali), 'SBI', dan 'HDFC Bank -', memiliki lebih banyak interaksi (sel berwarna biru gelap) dibandingkan bank lain. Hal ini mengkonfirmasi observasi dari grafik "Jumlah Ulasan per Bank" bahwa bank-bank ini lebih sering diulas.
-   - Variasi Pola Interaksi Pengguna: Setiap baris (pengguna) menunjukkan pola interaksi yang berbeda. Beberapa pengguna (misalnya, 'VENGATESAN' atau 'YAD') hanya berinteraksi dengan satu atau dua bank, sementara yang lain (misalnya, 'PRAD') menunjukkan interaksi yang lebih beragam. Pola ini akan menjadi dasar bagi algoritma Collaborative Filtering untuk menemukan kemiripan antar pengguna atau antar bank.
-
----
-
-## Data Preparation
-
-Berikut adalah versi yang lebih rapi dan informatif dari segmen **Data Preparation**, lengkap dengan penjelasan dan insight pada setiap sub-segmen kode:
+   - Heatmap ini dengan jelas menunjukkan bahwa matriks interaksi pengguna-bank sangat sparse (jarang). Sebagian besar sel berwarna kuning pucat (nilai 0 atau tidak ada interaksi), yang berarti mayoritas pengguna hanya berinteraksi (memberikan rating) dengan sedikit bank dari total bank yang tersedia. Ini adalah karakteristik umum dalam sistem rekomendasi dan menjadi tantangan utama.
+   - Meskipun ini hanya sampel, terlihat bahwa beberapa bank, seperti 'review' (yang telah kita identifikasi sebagai anomali), 'SBI', dan 'HDFC Bank -', memiliki lebih banyak interaksi (sel berwarna biru gelap) dibandingkan bank lain. Hal ini mengkonfirmasi observasi dari grafik "Jumlah Ulasan per Bank" bahwa bank-bank ini lebih sering diulas.
+   - Setiap baris (pengguna) menunjukkan pola interaksi yang berbeda. Beberapa pengguna (misalnya, 'VENGATESAN' atau 'YAD') hanya berinteraksi dengan satu atau dua bank, sementara yang lain (misalnya, 'PRAD') menunjukkan interaksi yang lebih beragam. Pola ini akan menjadi dasar bagi algoritma Collaborative Filtering untuk menemukan kemiripan antar pengguna atau antar bank.
 
 ---
 
@@ -265,20 +257,17 @@ train, test = train_test_split(df_clean, test_size=0.2, random_state=42)
 ```
 
 * **Tujuan**: Membagi data menjadi data latih (80%) dan data uji (20%) untuk melatih dan mengevaluasi performa model.
-* **Insight**: Pemisahan data dilakukan secara acak namun konsisten (melalui `random_state=42`) untuk memastikan hasil eksperimen dapat direproduksi. Evaluasi model akan dilakukan pada data yang belum pernah dilihat model selama proses pelatihan.
+* **Insight**: Pemisahan data dilakukan secara acak namun konsisten (melalui `random_state=42`) untuk memastikan hasil eksperimen dapat direproduksi.
 
  ---
 
 ## Modeling
-Berikut adalah versi perbaikan dari segmen **Modeling** sesuai permintaan Anda — tanpa menyisipkan ulang kode, lebih ringkas, rapi, namun tetap mencakup penjelasan teknis, parameter, dan evaluasi setiap model. Bagian output Top-N juga ditambahkan sebagai penutup meski belum diimplementasikan.
 
----
-
-## Modeling
-
-Pada bagian ini, dibangun tiga pendekatan sistem rekomendasi yang berbeda untuk menyelesaikan permasalahan rekomendasi bank kepada pengguna. Evaluasi model dilakukan menggunakan **Mean Absolute Error (MAE)** untuk menilai seberapa dekat prediksi model terhadap nilai rating aktual.
+Pada bagian ini, dibangun tiga pendekatan sistem rekomendasi yang berbeda untuk menyelesaikan permasalahan rekomendasi bank kepada pengguna. Evaluasi model dilakukan menggunakan **Mean Absolute Error (MAE)** untuk menilai seberapa dekat prediksi model terhadap nilai rating aktual. Selain itu, juga dilakukan evaluasi berbasis **Top-N Recommendation** menggunakan metrik Precision\@N, Recall\@N, dan F1\@N.
 
 Tiga model yang digunakan adalah:
+
+---
 
 ### Model 1 – User-Based Collaborative Filtering (Cosine Similarity)
 
@@ -298,6 +287,15 @@ Model ini memanfaatkan **kemiripan antar pengguna** (user-user similarity) untuk
 * Tidak efektif pada data yang sangat sparse.
 * Tidak bisa menangani cold-start (pengguna atau item baru).
 
+**Top-N Performance:**
+
+Top-4 rekomendasi IBCF untuk User-1:
+
+1. IDBI (Item 4) — Prediksi Rating: 5.0000
+2. IndusInd Bank (Item 5) — Prediksi Rating: 4.7462
+3. Citibank (Item 2) — Prediksi Rating: 4.7315
+4. review (Item 9) — Prediksi Rating: 4.5877
+
 ### Model 2 – SVD Matrix Factorization (Manual)
 
 Model ini menggunakan **Truncated SVD** untuk melakukan dekomposisi matriks interaksi menjadi dimensi laten yang lebih kecil. Matriks kemudian direkonstruksi untuk menghasilkan prediksi rating.
@@ -316,13 +314,21 @@ Model ini menggunakan **Truncated SVD** untuk melakukan dekomposisi matriks inte
 * Tidak bisa menangani user atau item baru.
 * Tidak fleksibel terhadap perubahan data.
 
+**Top-N Performance:**
+Top-4 rekomendasi IBCF untuk User-1:
+
+1. Canara Bank (Item 1) — Prediksi Rating: 0.1843
+2. Citibank (Item 2) — Prediksi Rating: 0.1121
+3. IndusInd Bank (Item 5) — Prediksi Rating: 0.0606
+4. Punjab National Bank (Item 7) — Prediksi Rating: 0.0511
+
 ### Model 3 – Neural Collaborative Filtering (NCF)
 
 Model ini dibangun menggunakan arsitektur **PyTorch** dan menerapkan pendekatan pembelajaran mendalam untuk memodelkan interaksi kompleks antara user dan item. User dan item diubah menjadi embedding dan diproses melalui layer neural network.
 
 **Parameter yang digunakan:**
 
-* `Embedding dimensi (default)`: berdasarkan input jumlah user dan item.
+* `Embedding dimensi`: berdasarkan input jumlah user dan item.
 * `Batch size = 64`
 * `Learning rate = 0.005`
 * `Loss function = MSELoss`
@@ -339,18 +345,74 @@ Model ini dibangun menggunakan arsitektur **PyTorch** dan menerapkan pendekatan 
 * Membutuhkan waktu dan sumber daya komputasi lebih banyak.
 * Rentan overfitting jika tidak dilengkapi teknik regularisasi.
 
+**Top-N Performance:**
+
+Top-4 rekomendasi IBCF untuk User-1:
+
+1. HDFC Bank (Item 3) — Prediksi Rating: 5.0076
+2. Punjab National Bank (Item 7) — Prediksi Rating: 4.9326
+3. Axis Bank (Item 0) — Prediksi Rating: 4.8332
+4. Citibank (Item 2) — Prediksi Rating: 4.7248
+
 ---
 
+
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+Pada tahap ini, dilakukan evaluasi terhadap performa tiga model sistem rekomendasi menggunakan dua pendekatan metrik utama yang saling melengkapi, yaitu **Mean Absolute Error (MAE)** untuk mengukur akurasi prediksi rating dan **Top-N Recommendation Metrics** (Precision\@5, Recall\@5, dan F1-Score\@5) untuk menilai kualitas rekomendasi item teratas. Pemilihan metrik ini disesuaikan dengan dua tujuan utama dari sistem: memberikan prediksi yang akurat serta rekomendasi yang relevan bagi pengguna.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+---
 
-**---Ini adalah bagian akhir laporan---**
+### 1. **Mean Absolute Error (MAE)**
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+MAE digunakan untuk mengukur **rata-rata selisih absolut** antara rating yang diprediksi model dan rating aktual yang diberikan oleh pengguna. Semakin kecil nilai MAE, semakin akurat model dalam memprediksi rating.
+
+**Rumus MAE**:
+
+$$
+MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+$$
+
+| Model                   | MAE    |
+| ----------------------- | ------ |
+| Model 1 (User-Based CF) | 0.7164 |
+| Model 2 (SVD)           | 0.4968 |
+| Model 3 (NCF)           | 0.8145 |
+
+**Interpretasi:**
+Model **SVD** memiliki nilai MAE paling rendah (0.4968), yang menunjukkan bahwa model ini paling akurat dalam memperkirakan rating pengguna terhadap bank. Sebaliknya, model NCF menghasilkan MAE tertinggi (0.8145), menandakan prediksinya cenderung lebih jauh dari rating aktual.
+
+---
+
+### 2. **Top-N Recommendation Evaluation**
+
+Evaluasi ini difokuskan pada seberapa baik model dalam menghasilkan daftar rekomendasi item teratas (Top-N) yang relevan untuk pengguna. Tiga metrik utama digunakan dalam evaluasi ini:
+
+* **Precision\@N**: Proporsi item yang relevan dari seluruh item yang direkomendasikan.
+* **Recall\@N**: Proporsi item relevan yang berhasil ditemukan dalam daftar rekomendasi.
+* **F1-Score\@N**: Rata-rata harmonik dari precision dan recall; digunakan untuk mengevaluasi keseimbangan antara keduanya.
+
+**Rumus**:
+
+* $Precision@N = \frac{\text{Jumlah item relevan dalam Top-N}}{N}$
+* $Recall@N = \frac{\text{Jumlah item relevan dalam Top-N}}{\text{Jumlah total item relevan}}$
+* $F1@N = 2 \times \frac{Precision@N \times Recall@N}{Precision@N + Recall@N}$
+
+Berikut adalah hasil evaluasi untuk Top-5 rekomendasi:
+
+| Model                   | Precision\@5 | Recall\@5 | F1-Score\@5 |
+| ----------------------- | ------------ | --------- | ----------- |
+| Model 1 (User-Based CF) | 0.1200       | 0.5640    | 0.1966      |
+| Model 2 (SVD)           | 0.1904       | 0.9160    | 0.3139      |
+| Model 3 (NCF)           | 0.1008       | 0.4840    | 0.1661      |
+
+**Interpretasi:**
+Model **SVD** juga unggul dalam metrik evaluasi Top-N, dengan nilai Precision\@5, Recall\@5, dan F1-Score\@5 tertinggi dibandingkan dua model lainnya. Precision\@5 sebesar 0.1904 menunjukkan bahwa sekitar 19% dari 5 item teratas yang direkomendasikan relevan dengan preferensi pengguna. Sementara itu, Recall\@5 sebesar 0.9160 menandakan bahwa model SVD berhasil menemukan sebagian besar item relevan. Nilai F1-Score\@5 tertinggi (0.3139) menunjukkan keseimbangan optimal antara akurasi dan cakupan rekomendasi.
+
+---
+
+### Kesimpulan Evaluasi
+
+Berdasarkan kedua jenis evaluasi, **Model 2 (SVD)** terbukti sebagai model terbaik dalam proyek ini. Model ini tidak hanya memiliki **akurasi prediksi tertinggi** (MAE terendah), tetapi juga **kualitas rekomendasi terbaik** (Precision, Recall, dan F1-Score tertinggi pada Top-5 rekomendasi). Oleh karena itu, pendekatan **SVD Matrix Factorization** sangat direkomendasikan untuk diimplementasikan sebagai model utama dalam sistem rekomendasi ini guna membantu calon nasabah menemukan bank yang paling sesuai dengan preferensi mereka.
+
+---
