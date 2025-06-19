@@ -380,9 +380,7 @@ $$
 | Model 3 (NCF)           | 0.8145 |
 
 **Interpretasi:**
-Model **SVD** memiliki nilai MAE paling rendah (0.4968), yang menunjukkan bahwa model ini paling akurat dalam memperkirakan rating pengguna terhadap bank. Sebaliknya, model NCF menghasilkan MAE tertinggi (0.8145), menandakan prediksinya cenderung lebih jauh dari rating aktual.
-
----
+Nilai MAE terendah pada Model 2 (SVD) menunjukkan bahwa model ini paling akurat dalam memahami preferensi calon nasabah, menjawab langsung tantangan dalam Problem Statement 1 terkait kesulitan menemukan bank yang sesuai. Dengan prediksi yang mendekati rating aktual, sistem mampu memberikan rekomendasi yang lebih tepat sasaran.
 
 ### 2. **Top-N Recommendation Evaluation**
 
@@ -407,12 +405,19 @@ Berikut adalah hasil evaluasi untuk Top-5 rekomendasi:
 | Model 3 (NCF)           | 0.1008       | 0.4840    | 0.1661      |
 
 **Interpretasi:**
-Model **SVD** juga unggul dalam metrik evaluasi Top-N, dengan nilai Precision\@5, Recall\@5, dan F1-Score\@5 tertinggi dibandingkan dua model lainnya. Precision\@5 sebesar 0.1904 menunjukkan bahwa sekitar 19% dari 5 item teratas yang direkomendasikan relevan dengan preferensi pengguna. Sementara itu, Recall\@5 sebesar 0.9160 menandakan bahwa model SVD berhasil menemukan sebagian besar item relevan. Nilai F1-Score\@5 tertinggi (0.3139) menunjukkan keseimbangan optimal antara akurasi dan cakupan rekomendasi.
+Model **SVD** juga unggul dalam metrik evaluasi Top-N, dengan nilai Precision\@5, Recall\@5, dan F1-Score\@5 tertinggi dibandingkan dua model lainnya. Precision\@5 sebesar 0.1904 menunjukkan bahwa sekitar 19% dari 5 item teratas yang direkomendasikan relevan dengan preferensi pengguna. Sementara itu, Recall\@5 sebesar 0.9160 menandakan bahwa model SVD berhasil menemukan sebagian besar item relevan. Nilai F1-Score\@5 tertinggi (0.3139) menunjukkan keseimbangan optimal antara akurasi dan cakupan rekomendasi. Hal ini secara langsung mendukung Goal 2 dan menjawab Problem Statement 2, yaitu kurangnya personalisasi dalam penawaran bank. Precision dan recall yang tinggi menunjukkan bahwa SVD dapat menyaring informasi dengan baik dan menampilkan bank yang benar-benar relevan bagi pengguna.
 
 ---
 
 ### Kesimpulan Evaluasi
 
-Berdasarkan kedua jenis evaluasi, **Model 2 (SVD)** terbukti sebagai model terbaik dalam proyek ini. Model ini tidak hanya memiliki **akurasi prediksi tertinggi** (MAE terendah), tetapi juga **kualitas rekomendasi terbaik** (Precision, Recall, dan F1-Score tertinggi pada Top-5 rekomendasi). Oleh karena itu, pendekatan **SVD Matrix Factorization** sangat direkomendasikan untuk diimplementasikan sebagai model utama dalam sistem rekomendasi ini guna membantu calon nasabah menemukan bank yang paling sesuai dengan preferensi mereka.
+Berdasarkan kedua jenis evaluasi, **Model 2 (SVD)** terbukti sebagai model terbaik dalam proyek ini. Model ini tidak hanya memiliki **akurasi prediksi tertinggi** (MAE terendah), tetapi juga **kualitas rekomendasi terbaik** (Precision, Recall, dan F1-Score tertinggi pada Top-5 rekomendasi). Model ini berdampak langsung terhadap penyelesaian permasalahan yang diangkat dan berhasil mencapai kedua goals utama proyek:
+ 
+ - Membantu calon nasabah menemukan bank ideal dengan akurasi tinggi.
+ - Meningkatkan relevansi dan personalisasi penawaran bank.
+
+Dengan demikian, implementasi model SVD diharapkan mampu memberikan nilai tambah nyata bagi calon nasabah dan sektor perbankan secara umum, sekaligus menjadi dasar rekomendasi untuk pengembangan sistem rekomendasi yang dapat diandalkan di masa depan.
+
+
 
 ---
