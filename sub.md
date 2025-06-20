@@ -291,10 +291,10 @@ Model ini memanfaatkan **kemiripan antar pengguna** (user-user similarity) untuk
 
 Top-4 rekomendasi IBCF untuk User-1:
 
-1. IDBI (Item 4) — Prediksi Rating: 5.0000
-2. IndusInd Bank (Item 5) — Prediksi Rating: 4.7462
-3. Citibank (Item 2) — Prediksi Rating: 4.7315
-4. review (Item 9) — Prediksi Rating: 4.5877
+1. **IDBI (Item 4)** — Prediksi Rating: **5.0000**
+2. **IndusInd Bank (Item 5)** — Prediksi Rating: **4.7462**
+3. **Citibank (Item 2)** — Prediksi Rating: **4.7315**
+4. **review (Item 9)** — Prediksi Rating: **4.5877**
 
 ### Model 2 – SVD Matrix Factorization (Manual)
 
@@ -317,10 +317,10 @@ Model ini menggunakan **Truncated SVD** untuk melakukan dekomposisi matriks inte
 **Top-N Performance:**
 Top-4 rekomendasi IBCF untuk User-1:
 
-1. Canara Bank (Item 1) — Prediksi Rating: 0.1843
-2. Citibank (Item 2) — Prediksi Rating: 0.1121
-3. IndusInd Bank (Item 5) — Prediksi Rating: 0.0606
-4. Punjab National Bank (Item 7) — Prediksi Rating: 0.0511
+1. **Canara Bank (Item 1)** — Prediksi Rating: **0.1843**
+2. **Citibank (Item 2)** — Prediksi Rating: **0.1121**
+3. **IndusInd Bank (Item 5)** — Prediksi Rating: **0.0606**
+4. **Punjab National Bank (Item 7)** — Prediksi Rating: **0.0511**
 
 ### Model 3 – Neural Collaborative Filtering (NCF)
 
@@ -349,10 +349,10 @@ Model ini dibangun menggunakan arsitektur **PyTorch** dan menerapkan pendekatan 
 
 Top-4 rekomendasi IBCF untuk User-1:
 
-1. HDFC Bank (Item 3) — Prediksi Rating: 5.0076
-2. Punjab National Bank (Item 7) — Prediksi Rating: 4.9326
-3. Axis Bank (Item 0) — Prediksi Rating: 4.8332
-4. Citibank (Item 2) — Prediksi Rating: 4.7248
+1. **Kotak (Item 6)** — Prediksi Rating: **4.3107**
+2. **Punjab National Bank (Item 7)** — Prediksi Rating: **4.2110**
+3. **HDFC Bank (Item 3)** — Prediksi Rating: **4.2061**
+4. **Citibank (Item 2)** — Prediksi Rating: **4.0871**
 
 ---
 
@@ -373,11 +373,12 @@ $$
 MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
 $$
 
-| Model                   | MAE    |
-| ----------------------- | ------ |
-| Model 1 (User-Based CF) | 0.7164 |
-| Model 2 (SVD)           | 0.4968 |
-| Model 3 (NCF)           | 0.8145 |
+| Model                   | MAE        |
+| ----------------------- | ---------- |
+| Model 1 (User-Based CF) | 0.7164     |
+| Model 2 (SVD)           | **0.4968** |
+| Model 3 (NCF)           | 0.8357     |
+
 
 **Interpretasi:**
 Nilai MAE terendah pada Model 2 (SVD) menunjukkan bahwa model ini paling akurat dalam memahami preferensi calon nasabah, menjawab langsung tantangan dalam Problem Statement 1 terkait kesulitan menemukan bank yang sesuai. Dengan prediksi yang mendekati rating aktual, sistem mampu memberikan rekomendasi yang lebih tepat sasaran.
@@ -398,11 +399,11 @@ Evaluasi ini difokuskan pada seberapa baik model dalam menghasilkan daftar rekom
 
 Berikut adalah hasil evaluasi untuk Top-5 rekomendasi:
 
-| Model                   | Precision\@5 | Recall\@5 | F1-Score\@5 |
-| ----------------------- | ------------ | --------- | ----------- |
-| Model 1 (User-Based CF) | 0.1200       | 0.5640    | 0.1966      |
-| Model 2 (SVD)           | 0.1904       | 0.9160    | 0.3139      |
-| Model 3 (NCF)           | 0.1008       | 0.4840    | 0.1661      |
+| Model                   | Precision\@5 | Recall\@5  | F1-Score\@5 |
+| ----------------------- | ------------ | ---------- | ----------- |
+| Model 1 (User-Based CF) | 0.1200       | 0.5640     | 0.1966      |
+| Model 2 (SVD)           | **0.1904**   | **0.9160** | **0.3139**  |
+| Model 3 (NCF)           | 0.0928       | 0.4400     | 0.1524      |
 
 **Interpretasi:**
 Model **SVD** juga unggul dalam metrik evaluasi Top-N, dengan nilai Precision\@5, Recall\@5, dan F1-Score\@5 tertinggi dibandingkan dua model lainnya. Precision\@5 sebesar 0.1904 menunjukkan bahwa sekitar 19% dari 5 item teratas yang direkomendasikan relevan dengan preferensi pengguna. Sementara itu, Recall\@5 sebesar 0.9160 menandakan bahwa model SVD berhasil menemukan sebagian besar item relevan. Nilai F1-Score\@5 tertinggi (0.3139) menunjukkan keseimbangan optimal antara akurasi dan cakupan rekomendasi. Hal ini secara langsung mendukung Goal 2 dan menjawab Problem Statement 2, yaitu kurangnya personalisasi dalam penawaran bank. Precision dan recall yang tinggi menunjukkan bahwa SVD dapat menyaring informasi dengan baik dan menampilkan bank yang benar-benar relevan bagi pengguna.
